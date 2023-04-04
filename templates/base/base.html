@@ -38,23 +38,23 @@
                     Products
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="#">Milk</a>
-                    <a class="dropdown-item" href="#">Curd</a>
-                    <a class="dropdown-item" href="#">Milkshake</a>
-                    <a class="dropdown-item" href="#">Lossi</a>
-                    <a class="dropdown-item" href="#">Ghee</a>
-                    <a class="dropdown-item" href="#">Panner</a>
-                    <a class="dropdown-item" href="#">Cheese</a>
-                    <a class="dropdown-item" href="#">Ice cream</a>
+                    <a class="dropdown-item" href="{% url 'category' 'ML' %}">Milk</a>
+                    <a class="dropdown-item" href="{% url 'category' 'CR' %}">Curd</a>
+                    <a class="dropdown-item" href="{% url 'category' 'MS' %}">Milkshake</a>
+                    <a class="dropdown-item" href="{% url 'category' 'LS' %}">Lossi</a>
+                    <a class="dropdown-item" href="{% url 'category' 'GH' %}">Ghee</a>
+                    <a class="dropdown-item" href="{% url 'category' 'PN' %}">Panner</a>
+                    <a class="dropdown-item" href="{% url 'category' 'C2' %}">Cheese</a>
+                    <a class="dropdown-item" href="{% url 'category' 'IC' %}">Ice cream</a>
                 </div>
             </li>
 
             <li class="nav-item">
-                <a class="nav-link text-white" href="#">Abou Ust</a>
+                <a class="nav-link text-white" href="{% url 'about' %}">Abou Ust</a>
             </li>
 
             <li class="nav-item">
-                <a class="nav-link text-white" href="#">Contact us</a>
+                <a class="nav-link text-white" href="{% url 'contact' %}">Contact us</a>
             </li>
 
             <li class="nav-item">
@@ -100,10 +100,10 @@
                 <a class="nav-link text-white" href="#">Wishlist 4</a>
             </li>
             <li class="nav-item dropdown mx-2">
-                <a class="nav-link text-white" href="#">Login</a>
+                <a class="nav-link text-white" href="{% url 'login-form' %}">Login</a>
             </li>
             <li class="nav-item dropdown mx-2">
-                <a class="nav-link text-white" href="#">Registration 4</a>
+                <a class="nav-link text-white" href="{% url 'customer-registration' %}">Registration 4</a>
             </li>
         </ul>
 
