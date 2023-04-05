@@ -8,3 +8,8 @@ class ProductModeAdmin(admin.ModelAdmin):
 @admin.register(Customer)
 class CustomerModeAdmin(admin.ModelAdmin):
     list_display = ['id','user','locality','city','state','zipcode']
+
+@admin.register(Cart)
+class CartModeAdmin(admin.ModelAdmin):
+    list_display = ['id','user','product','quantity']
+

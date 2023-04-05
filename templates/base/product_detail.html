@@ -26,11 +26,15 @@
                     <li>{{ product.description }}</li>
                 </ul>
 
-                <div class="button row flex" style="font-family: Rajdhant;">
-                    <button type="submit" class="d-grip gap-2 btn1 btn btn-danger p-1 m-1 btn-lg text-decoration-none text-white">Add to cart</button>
-                    <div class="btn btn-dark p-1 m-1 btn-lg">
-                        <a href="{{ url 'checkout' }}" class="text-decoration-none text-white">Buy now</a>
-                    </div>
+                <form action="{% url 'add_to_cart' %}" style="font-family: Rajdhan;">
+                    <input type="hidden" name="prod_id" value="{{ product.id }}">
+                    <button type="submit"
+                            class="btn btn-primary shadow px-5 py-2">
+                        Add to cart
+                    </button>
+                </form>
+                <div class="btn btn-dark p-1 m-1 btn-lg">
+                    <a href="{% url 'show_cart' %}" class="btn btn-warning shadow px-5 py-2 ms-4">Buy now</a>
                 </div>
 
             </div>
