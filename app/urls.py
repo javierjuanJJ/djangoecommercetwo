@@ -16,6 +16,7 @@ Including another URLconf
 """
 from django.conf import settings
 from django.conf.urls.static import static
+from django.contrib import admin
 from django.contrib.auth import views as auth_view
 from django.urls import path
 
@@ -27,13 +28,21 @@ urlpatterns = [
                   path('contact/', views.home, name='contact'),
                   path('add-to-cart/', views.add_to_cart, name='add_to_cart'),
                   path('cart/', views.show_cart, name='show_cart'),
-                  path('checkout/', views.checkout, name='checkout'),
-
+                  path('checkout/', views.checkout.as_view(), name='checkout'),
+                  path('paymentdone/', views.payment_done, name='paymentdone'),
+                  path('orders/', views.orders, name='orders'),
+                  path('plus-cart/', views.plus_cart, name='checkout'),
+                  path('minus-cart/', views.minus_cart, name='checkout'),
+                  path('plus-wishlist/', views.plus_wishlist, name='plus_wishlist'),
+                  path('minus-wishlist/', views.minus_wishlist, name='minus_wishlist'),
+                  path('wishlist/', views.show_wishlist, name='minus_wishlist'),
+                  path('remove-cart/', views.remove_cart, name='checkout'),
+                  path('search/', views.search, name='search'),
                   path('aboout/', views.home, name='about'),
                   path('profile/', views.ProfileView.as_view(), name='profile'),
                   path('address/', views.address, name='address'),
                   path('category/<slug:val>', views.CategoryView.as_view(), name='category'),
-                  # path('category-detail/<val>', views.CategoryView.as_view(), name='category-title'),
+                  path('category-title/<val>', views.CategoryTitle.as_view(), name='category-title'),
                   path('product-detail/<int:pk>', views.ProductDetail.as_view(), name='product-detail'),
                   path('profile-view/<int:pk>', views.ProfileView.as_view(), name='profile-view'),
                   path('registration/', views.CustomerRegistrationView.as_view(), name='customer-registration'),
@@ -54,17 +63,17 @@ urlpatterns = [
                        auth_view.LogoutView.as_view(next_page='login'),
                        name='logout'),
 
-
-
                   path('password-reset/', auth_view.PasswordResetView.as_view(template_name='base/password_reset.html',
                                                                               form_class=MyPasswordResetForm),
                        name='password-reset'),
 
                   path('password-reset/done',
-                       auth_view.PasswordResetDoneView.as_view(template_name='base/password_reset_done.html',),name='password-reset-done'),
+                       auth_view.PasswordResetDoneView.as_view(template_name='base/password_reset_done.html', ),
+                       name='password-reset-done'),
 
                   path('password-reset-confirm/<uidb64>/<token>/',
-                       auth_view.PasswordResetConfirmView.as_view(template_name='base/password_reset_confirm.html', form_class=MySetPasswordForm),
+                       auth_view.PasswordResetConfirmView.as_view(template_name='base/password_reset_confirm.html',
+                                                                  form_class=MySetPasswordForm),
                        name='password-reset-confirm'),
 
                   path('password-reset-complete/',
@@ -72,3 +81,8 @@ urlpatterns = [
                        name='password-reset-complete'),
 
               ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+
+admin.site.site_header="Neel Dairy"
+admin.site.site_index_title="Welcome to Neel Dairy"
+admin.site.site_title="Neel Dairy"
